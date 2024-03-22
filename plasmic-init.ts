@@ -1,18 +1,18 @@
-import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
+import { initPlasmicLoader } from '@plasmicapp/loader-nextjs';
+import { SectionHeader } from './components/sectionHeader/sectionheader';
 
 export const PLASMIC = initPlasmicLoader({
-  projects: [
-    {
-      id: "niDSegE7wd11U7wAjyGDNC",
-      token: "XTDoEG6N3yfV48RKSfJ9XJEVXE3xlfJWLkHqAe6LdcZTi6NQ0VtMwFADGl5Zj6U8PaR48YhhHcxAkxhk0QQ",
-    },
-  ],
-
-  // By default Plasmic will use the last published version of your project.
-  // For development, you can set preview to true, which will use the unpublished
-  // project, allowing you to see your designs without publishing.  Please
-  // only use this for development, as this is significantly slower.
-  preview: false,
+	projects: [
+		{
+			id: 'niDSegE7wd11U7wAjyGDNC',
+			token: 'XTDoEG6N3yfV48RKSfJ9XJEVXE3xlfJWLkHqAe6LdcZTi6NQ0VtMwFADGl5Zj6U8PaR48YhhHcxAkxhk0QQ',
+		},
+	],
+	// By default Plasmic will use the last published version of your project.
+	// For development, you can set preview to true, which will use the unpublished
+	// project, allowing you to see your designs without publishing.  Please
+	// only use this for development, as this is significantly slower.
+	preview: false,
 });
 
 // You can register any code components that you want to use here; see
@@ -22,4 +22,22 @@ export const PLASMIC = initPlasmicLoader({
 // http://localhost:3000/plasmic-host).  See
 // https://docs.plasmic.app/learn/app-hosting/#set-a-plasmic-project-to-use-your-app-host
 
-// PLASMIC.registerComponent(...);
+PLASMIC.registerComponent(SectionHeader, {
+	name: 'SectionHeader',
+	props: {
+		children: {
+			type: 'slot',
+		},
+		gallery: {
+			type: 'array',
+			itemType: {
+				type: 'object',
+				fields: {
+					url: 'imageUrl',
+					title: 'string',
+					link: 'string',
+				},
+			},
+		},
+	},
+});
