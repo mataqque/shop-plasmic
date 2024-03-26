@@ -1,5 +1,6 @@
 import { initPlasmicLoader } from '@plasmicapp/loader-nextjs';
 import { SectionHeader } from './components/sectionHeader/sectionheader';
+import { Div } from './components/basic/div';
 
 export const PLASMIC = initPlasmicLoader({
 	projects: [
@@ -39,5 +40,14 @@ PLASMIC.registerComponent(SectionHeader, {
 				},
 			},
 		},
+	},
+});
+
+PLASMIC.registerComponent(Div, {
+	name: 'div',
+	props: {
+		// children: {
+		// 	type: 'slot',
+		// },
 	},
 });
