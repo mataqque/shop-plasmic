@@ -19,28 +19,7 @@ interface IPropsSectionHeader {
 	className?: string;
 }
 export const SectionHeader = memo(function Section({ children, gallery }: { children?: ReactNode; gallery: Array<{ url: string; title: string; link: string }> }) {
-	console.log('gallery', gallery);
 	const [indexActive, setIndexActive] = useState(0);
-	const arraySlides = [
-		{
-			title: 'REGALOS PARA TUS MOMENTOS ESPECIALES',
-			image: banner,
-			image_mobile: mobile_banner,
-			link: '/regalos/flores',
-		},
-		{
-			title: 'PÍDELO DESDE DE LA COMIDAD DE TU HOGAR',
-			image: pedido,
-			image_mobile: mobile_pedido,
-			link: '/regalos/accesorios-tecnologicos',
-		},
-		{
-			title: 'TENEMOS LO QUE NECESITAS',
-			image: banner_accesorios,
-			image_mobile: mobile_banner_accesorios,
-			link: '/regalos/maquillaje',
-		},
-	];
 	const beforeChange = (current: any, next: any) => {
 		setIndexActive(next);
 	};

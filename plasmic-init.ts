@@ -1,6 +1,9 @@
 import { initPlasmicLoader } from '@plasmicapp/loader-nextjs';
 import { SectionHeader } from './components/sectionHeader/sectionheader';
 import { Div } from './components/basic/div';
+import { TargetCategory } from './components/TargetCategory/TargetCategory';
+import { CartComponent } from './components/buy/cart';
+import { ButtonResetDataCart } from './components/basic/buttonReset';
 
 export const PLASMIC = initPlasmicLoader({
 	projects: [
@@ -43,11 +46,43 @@ PLASMIC.registerComponent(SectionHeader, {
 	},
 });
 
+PLASMIC.registerComponent(TargetCategory, {
+	name: 'CardShop',
+	props: {
+		children: {
+			type: 'slot',
+		},
+		product: {
+			type: 'array',
+		},
+	},
+});
+
 PLASMIC.registerComponent(Div, {
 	name: 'div',
 	props: {
-		// children: {
-		// 	type: 'slot',
-		// },
+		children: {
+			type: 'slot',
+		},
+	},
+});
+
+PLASMIC.registerComponent(CartComponent, {
+	name: 'CartComponent',
+	providesData: true,
+	props: {
+		children: {
+			type: 'slot',
+		},
+	},
+});
+
+PLASMIC.registerComponent(ButtonResetDataCart, {
+	name: 'Botón Resetear',
+	providesData: true,
+	props: {
+		children: {
+			type: 'slot',
+		},
 	},
 });
